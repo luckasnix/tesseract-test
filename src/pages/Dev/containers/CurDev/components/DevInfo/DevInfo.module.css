@@ -1,0 +1,13 @@
+.table {
+  border-collapse: collapse;
+  border: none;
+}
+.table tr td:first-child {
+  background-color: #1CB3BA;
+}
+.table tr td {
+  padding: 5px 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}

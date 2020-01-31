@@ -1,0 +1,5 @@
+.container ul {
+  padding: 50px;
+  display: grid;
+  gap: 25px;
+}

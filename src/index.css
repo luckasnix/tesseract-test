@@ -3,6 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+body {
+  background-color: #000000;
+}
 ul {
     list-style: none;
 }

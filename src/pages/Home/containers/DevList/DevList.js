@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import DevItem from './components/DevItem/DevItem'
 import DevsContext from '../../../../state/devs/Context'
 import * as devsActions from '../../../../state/devs/actions'
+import styles from './DevList.module.css'
 
 const devListURL = 'https://api.github.com/orgs/grupotesseract/public_members'
 
@@ -28,7 +29,7 @@ function DevList() {
   // eslint-disable-next-line
   }, [])
   return (
-    <div>
+    <div className={styles.container}>
       {devs.length ? (
         <ul>
           {devs.map((dev) => {

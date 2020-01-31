@@ -1,14 +1,41 @@
 import React from 'react'
+import styles from './DevInfo.module.css'
+
+function formatDate(date) {
+  const monthArr = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+  const objDate = new Date(date)
+  const day = objDate.getDate()
+  const month = monthArr[objDate.getMonth()]
+  const year = objDate.getFullYear()
+  return `${day} de ${month} de ${year}`
+}
 
 function DevInfo({ name, publicRepos, followers, following, createdAt }) {
   return (
-    <div>
-      <h1>Nome: {name}</h1>
-      <h2>Resitórios públicos: {publicRepos}</h2>
-      <h2>Seguidores: {followers}</h2>
-      <h2>Seguindo: {following}</h2>
-      <h2>No GitHub desde: {createdAt}</h2>
-    </div>
+    <table className={styles.table}>
+      <tbody>
+        <tr>
+          <td>Nome:</td>
+          <td>{name}</td>
+        </tr>
+        <tr>
+          <td>Resitórios públicos:</td>
+          <td>{publicRepos}</td>
+        </tr>
+        <tr>
+          <td>Seguidores:</td>
+          <td>{followers}</td>
+        </tr>
+        <tr>
+          <td>Seguindo:</td>
+          <td>{following}</td>
+        </tr>
+        <tr>
+          <td>No GitHub desde:</td>
+          <td>{formatDate(createdAt)}</td>
+        </tr>
+      </tbody>
+    </table>
   )
 }
 

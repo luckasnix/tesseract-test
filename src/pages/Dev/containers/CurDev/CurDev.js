@@ -2,6 +2,7 @@ import React, { useContext, useReducer, useEffect } from 'react'
 import DevInfo from './components/DevInfo/DevInfo'
 import { useParams } from 'react-router-dom'
 import DevsContext from '../../../../state/devs/Context'
+import styles from './CurDev.module.css'
 
 const SET_CURRENT_DEVELOPER = 'SET_CURRENT_DEVELOPER'
 
@@ -35,7 +36,6 @@ function Dev() {
         return res.json()
       })
       .then((res) => {
-        console.log(res)
         const fetchedDev = {
           name: res.name,
           publicRepos: res.public_repos,
@@ -51,7 +51,7 @@ function Dev() {
   // eslint-disable-next-line
   }, [])
   return (
-    <div>
+    <div className={styles.container}>
       {curDev ? <DevInfo {...curDev} /> : null}
     </div>
   )

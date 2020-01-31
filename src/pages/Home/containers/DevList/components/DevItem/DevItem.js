@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from './DevItem.module.css'
 
 function DevItem({ id, user, avatar }) {
   return (
-    <li>
+    <li className={styles.item}>
       <Link to={`/dev/${id}`}>
         <img
           src={avatar}
           alt='Foto do desenvolvedor'
         />
-        <span>{user}</span>
+        <p>{user}</p>
       </Link>
     </li>
   )
