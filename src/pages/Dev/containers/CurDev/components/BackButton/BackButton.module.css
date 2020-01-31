@@ -1,0 +1,8 @@
+.button {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}

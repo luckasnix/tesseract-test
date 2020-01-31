@@ -1,5 +1,6 @@
 import React, { useContext, useReducer, useEffect } from 'react'
 import DevInfo from './components/DevInfo/DevInfo'
+import BackButton from './components/BackButton/BackButton'
 import { useParams } from 'react-router-dom'
 import DevsContext from '../../../../state/devs/Context'
 import styles from './CurDev.module.css'
@@ -53,6 +54,7 @@ function Dev() {
   return (
     <div className={styles.container}>
       {curDev ? <DevInfo {...curDev} /> : null}
+      <BackButton className={styles.button}/>
     </div>
   )
 }
