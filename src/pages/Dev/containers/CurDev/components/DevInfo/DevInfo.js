@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './DevInfo.module.css'
 
+// Função de formatação de data
 function formatDate(date) {
   const monthArr = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
   const objDate = new Date(date)
@@ -10,6 +11,7 @@ function formatDate(date) {
   return `${day} de ${month} de ${year}`
 }
 
+// Componente de informações do desenvolvedor
 function DevInfo({ name, publicRepos, followers, following, createdAt }) {
   return (
     <table className={styles.table}>
