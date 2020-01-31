@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Suspense fallback={<span>Carregando...</span>}>
           <Switch>
-            <Route path='/dev/:id' component={Dev}/>
+            <Route path='/dev/:user' component={Dev}/>
             <Route component={Home}/>
           </Switch>
         </Suspense>

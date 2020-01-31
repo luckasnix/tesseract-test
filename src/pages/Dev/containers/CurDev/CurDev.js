@@ -1,8 +1,7 @@
-import React, { useContext, useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import DevInfo from './components/DevInfo/DevInfo'
 import BackButton from './components/BackButton/BackButton'
 import { useParams } from 'react-router-dom'
-import DevsContext from '../../../../state/devs/Context'
 import styles from './CurDev.module.css'
 
 const SET_CURRENT_DEVELOPER = 'SET_CURRENT_DEVELOPER'
@@ -24,15 +23,11 @@ function curDevReducer(_, action) {
 }
 
 function Dev() {
-  const { id } = useParams()
-  const { devs } = useContext(DevsContext)
-  const retrieveDev = devs.find((dev) => {
-    return dev.id === Number(id)
-  })
+  const { user } = useParams()
   const [curDev, dispatchToCurDev] = useReducer(curDevReducer, null)
   const devDetailURL = 'https://api.github.com/users/'
   useEffect(() => {
-    fetch(devDetailURL + retrieveDev.user)
+    fetch(devDetailURL + user)
       .then((res) => {
         return res.json()
       })
@@ -54,7 +49,7 @@ function Dev() {
   return (
     <div className={styles.container}>
       {curDev ? <DevInfo {...curDev} /> : null}
-      <BackButton className={styles.button}/>
+      <BackButton/>
     </div>
   )
 }

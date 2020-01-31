@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './DevItem.module.css'
 
-function DevItem({ id, user, avatar }) {
+function DevItem({ user, avatar }) {
   return (
     <li className={styles.item}>
-      <Link to={`/dev/${id}`}>
+      <Link to={`/dev/${user}`}>
         <img
           src={avatar}
           alt='Foto do desenvolvedor'
