@@ -4,10 +4,8 @@ import BackButton from './components/BackButton/BackButton'
 import { useParams } from 'react-router-dom'
 import styles from './CurDev.module.css'
 
-// Tipo de ação que define o desenvolvedor atual
 const SET_CURRENT_DEVELOPER = 'SET_CURRENT_DEVELOPER'
 
-// Ação que define o desenvolvedor atual
 function setCurrentDeveloper(dev) {
   return {
     type: SET_CURRENT_DEVELOPER,
@@ -15,7 +13,6 @@ function setCurrentDeveloper(dev) {
   }
 }
 
-// Função redutora do estado local do desenvolvedor atual
 function curDevReducer(_, action) {
   switch (action.type) {
     case SET_CURRENT_DEVELOPER:
@@ -25,22 +22,21 @@ function curDevReducer(_, action) {
   }
 }
 
-// URL da API do GitHub que dá acesso aos detalhes de um desenvolvedores
 const devDetailURL = 'https://api.github.com/users/'
 
 // Contêiner de busca de informações de desenvolvedor
 function Dev() {
-  // Nome de usuário de um desenvolvedor do Grupo Tesseract recuperado da URL
+  // Nome de usuário de um desenvolvedor recuperado da URL
   const { user } = useParams()
+  // Consumo dos dados do estado local
   const [curDev, dispatchToCurDev] = useReducer(curDevReducer, null)
+  // Busca dos dados referente ao desenvolvedor e despacho para o estado local
   async function fetchCurrentDeveloper() {
-    // Busca dos dados referente ao desenvolvedor
     await fetch(devDetailURL + user)
       .then((res) => {
         return res.json()
       })
       .then((res) => {
-        // Filtragem dos dados que interessam do desenvolvedor
         const fetchedDev = {
           name: res.name,
           publicRepos: res.public_repos,
@@ -48,7 +44,6 @@ function Dev() {
           following: res.following,
           createdAt: res.created_at
         }
-        // Despacho dos dados filtrados para o estado local
         dispatchToCurDev(setCurrentDeveloper(fetchedDev))
       })
       .catch((err) => {

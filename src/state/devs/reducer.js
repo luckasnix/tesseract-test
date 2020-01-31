@@ -1,6 +1,5 @@
 import * as devsTypes from './types'
 
-// Função redutora do estado global da lista de desenvolvedores
 function reducer(_, action) {
   switch (action.type) {
     case devsTypes.CREATE_DEV_LIST:
