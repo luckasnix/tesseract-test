@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
-import DevsContext from '../../../state/devs/Context'
-import * as devsActions from '../../../state/devs/actions'
+import DevItem from './components/DevItem/DevItem'
+import DevsContext from '../../../../state/devs/Context'
+import * as devsActions from '../../../../state/devs/actions'
 
 const devListURL = 'https://api.github.com/orgs/grupotesseract/public_members'
 
@@ -31,15 +32,7 @@ function DevList() {
       {devs.length ? (
         <ul>
           {devs.map((dev) => {
-            return (
-              <li key={dev.id}>
-                <img
-                  src={dev.avatar}
-                  alt='Foto do desenvolvedor'
-                />
-                <span>{dev.user}</span>
-              </li>
-            )
+            return <DevItem  key={dev.id} {...dev} />
           })}
         </ul>
       ) : null}
